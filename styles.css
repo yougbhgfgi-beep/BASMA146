@@ -1,0 +1,697 @@
+/* ==========================================
+   BIRTHDAY PAGE - REALISTIC MATERIAL TEXTURES
+   ========================================== */
+
+/* Reset & Base */
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+body {
+  font-family: 'Cairo', sans-serif;
+  background-color: #28070F;
+  color: #2D2D2D;
+  overflow-x: hidden;
+  user-select: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #28070F; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #D4AF37, #8B263E);
+  border-radius: 10px;
+}
+
+/* ==========================================
+   PARCHMENT - Aged Paper Texture
+   ========================================== */
+.parchment-bg {
+  position: relative;
+  background-color: #FFFDF7;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"),
+    radial-gradient(circle at 50% 50%, rgba(212,175,55,0.08) 0%, transparent 80%),
+    radial-gradient(circle at 0% 0%, rgba(139,38,62,0.05) 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(255,182,193,0.1) 0%, transparent 60%),
+    radial-gradient(ellipse at 30% 20%, rgba(160,120,60,0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 80%, rgba(139,38,62,0.04) 0%, transparent 50%);
+}
+
+/* ==========================================
+   GOLD FILIGREE BORDER - Ornate Frame
+   ========================================== */
+.filigree-border {
+  border: 3px solid #D4AF37;
+  background: linear-gradient(135deg, rgba(212,175,55,0.15) 0%, transparent 30%, transparent 70%, rgba(212,175,55,0.15) 100%);
+  box-shadow:
+    inset 0 0 0 5px #FFFDF7,
+    inset 0 0 0 8px #8B263E,
+    inset 0 0 0 10px rgba(212,175,55,0.3),
+    0 0 30px rgba(212,175,55,0.2),
+    0 20px 50px rgba(0,0,0,0.3),
+    0 0 80px rgba(212,175,55,0.1);
+  border-image: linear-gradient(
+    135deg,
+    #D4AF37 0%,
+    #FCE8B3 15%,
+    #A37C27 30%,
+    #D4AF37 50%,
+    #FCE8B3 65%,
+    #A37C27 80%,
+    #D4AF37 100%
+  ) 1;
+}
+
+/* ==========================================
+   GLASSMORPHISM - Realistic Glass Panels
+   ========================================== */
+.glass-panel-light {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.95) 0%,
+    rgba(255,250,252,0.88) 25%,
+    rgba(255,245,248,0.82) 50%,
+    rgba(255,248,250,0.88) 75%,
+    rgba(255,255,255,0.95) 100%
+  );
+  backdrop-filter: blur(24px) saturate(1.8);
+  -webkit-backdrop-filter: blur(24px) saturate(1.8);
+  border: 1.5px solid rgba(255,255,255,0.6);
+  box-shadow:
+    0 8px 32px rgba(139,38,62,0.12),
+    0 2px 8px rgba(0,0,0,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.9),
+    inset 0 -1px 0 rgba(212,175,55,0.15),
+    inset 1px 0 0 rgba(255,255,255,0.5),
+    inset -1px 0 0 rgba(255,255,255,0.5);
+}
+.glass-panel-light::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, transparent 100%);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.glass-panel-dark {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(80,20,35,0.92) 0%,
+    rgba(55,12,22,0.95) 25%,
+    rgba(40,7,15,0.97) 50%,
+    rgba(55,12,22,0.95) 75%,
+    rgba(80,20,35,0.92) 100%
+  );
+  backdrop-filter: blur(30px) saturate(1.5);
+  -webkit-backdrop-filter: blur(30px) saturate(1.5);
+  border: 1.5px solid rgba(255,182,193,0.25);
+  box-shadow:
+    0 25px 60px rgba(0,0,0,0.6),
+    0 8px 20px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.15),
+    inset 0 -1px 0 rgba(0,0,0,0.3),
+    inset 1px 0 0 rgba(255,255,255,0.08),
+    inset -1px 0 0 rgba(255,255,255,0.05);
+}
+.glass-panel-dark::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 45%;
+  background: linear-gradient(180deg, rgba(255,182,193,0.12) 0%, transparent 100%);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* ==========================================
+   CANDLE STICKS - Realistic Wax Cylinders
+   ========================================== */
+.candle-stick {
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    #C9829A 0%,
+    #E6A2B3 12%,
+    #FFD0DC 30%,
+    #FFE8EE 48%,
+    #FFFFFF 52%,
+    #FFD0DC 65%,
+    #FFB6C1 80%,
+    #D87093 100%
+  );
+  box-shadow:
+    inset -3px 0 8px rgba(0,0,0,0.15),
+    inset 3px 0 8px rgba(255,255,255,0.3),
+    inset 0 0 4px rgba(255,255,255,0.2),
+    0 8px 20px rgba(0,0,0,0.35),
+    0 2px 6px rgba(0,0,0,0.2);
+  border-radius: 2px 2px 3px 3px;
+}
+.candle-stick::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 15%; right: 55%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.1) 100%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.gold-candle-stick {
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    #8B6914 0%,
+    #A37C27 12%,
+    #D4AF37 28%,
+    #FCE8B3 42%,
+    #FFF5CC 50%,
+    #FCE8B3 58%,
+    #D4AF37 72%,
+    #B8860B 88%,
+    #8B6914 100%
+  );
+  box-shadow:
+    inset -3px 0 8px rgba(0,0,0,0.2),
+    inset 3px 0 6px rgba(255,245,200,0.4),
+    inset 0 0 4px rgba(255,220,100,0.3),
+    0 8px 20px rgba(0,0,0,0.35),
+    0 2px 6px rgba(139,105,20,0.4);
+  border-radius: 2px 2px 3px 3px;
+}
+.gold-candle-stick::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 20%; right: 55%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(255,245,200,0.7) 0%, rgba(255,220,100,0.1) 100%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ==========================================
+   REALISTIC FLAME - Multi-layer Fire
+   ========================================== */
+.real-flame {
+  position: relative;
+  background:
+    radial-gradient(ellipse at 50% 90%, #FFFFFF 0%, rgba(255,255,255,0.8) 8%, transparent 25%),
+    radial-gradient(ellipse at 50% 80%, #FFFDE0 0%, rgba(255,253,220,0.6) 15%, transparent 35%),
+    radial-gradient(ellipse at 50% 65%, #FFF7AD 0%, rgba(255,247,173,0.5) 20%, transparent 45%),
+    radial-gradient(ellipse at 50% 50%, #FFB703 0%, rgba(255,183,3,0.6) 30%, transparent 60%),
+    radial-gradient(ellipse at 50% 35%, #FB8500 0%, rgba(251,133,0,0.4) 40%, transparent 70%),
+    radial-gradient(ellipse at 50% 20%, #E85D04 0%, transparent 80%);
+  border-radius: 50% 50% 20% 20% / 80% 80% 30% 30%;
+  box-shadow:
+    0 0 8px rgba(255,247,173,0.9),
+    0 0 16px rgba(255,183,3,0.8),
+    0 0 30px rgba(251,133,0,0.6),
+    0 0 50px rgba(255,182,193,0.4),
+    0 0 80px rgba(255,105,180,0.2);
+  animation: realisticFlicker 0.08s infinite alternate ease-in-out;
+}
+.real-flame::before {
+  content: '';
+  position: absolute;
+  top: -2px; left: 20%; right: 20%;
+  height: 30%;
+  background: radial-gradient(ellipse, rgba(255,255,255,0.95) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+@keyframes realisticFlicker {
+  0%   { transform: scale(1) rotate(-1.5deg); opacity: 0.92; filter: brightness(0.95); }
+  25%  { transform: scale(1.04) rotate(0.5deg); opacity: 1; filter: brightness(1.05); }
+  50%  { transform: scale(1.08) rotate(1deg); opacity: 0.98; filter: brightness(1); }
+  75%  { transform: scale(1.05) rotate(-0.5deg); opacity: 1; filter: brightness(1.02); }
+  100% { transform: scale(1.12) rotate(1.5deg); opacity: 0.9; filter: brightness(0.98); }
+}
+
+/* ==========================================
+   3D CAKE - Realistic Multi-Tier Cake
+   ========================================== */
+
+/* Shared cake styles */
+.cake-tier-1, .cake-tier-2, .cake-tier-3 {
+  position: relative;
+}
+
+/* Frosting top layer */
+.cake-frosting-top {
+  height: 14px;
+  background:
+    radial-gradient(circle at 15% 50%, #FF6B8A 8px, transparent 8px),
+    radial-gradient(circle at 35% 50%, #FF477E 6px, transparent 6px),
+    radial-gradient(circle at 55% 50%, #FF6B8A 7px, transparent 7px),
+    radial-gradient(circle at 75% 50%, #FF477E 8px, transparent 8px),
+    radial-gradient(circle at 90% 50%, #FF6B8A 5px, transparent 5px),
+    linear-gradient(180deg, #FF85A1 0%, #FF477E 100%);
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  box-shadow: 0 4px 12px rgba(230,57,70,0.4);
+}
+
+.cake-body-top {
+  height: 50px;
+  background: linear-gradient(90deg, #E8A0B0 0%, #FFD0DC 15%, #FFF0F5 35%, #FFFFFF 45%, #FFF0F5 55%, #FFD0DC 80%, #E8A0B0 100%);
+  box-shadow:
+    inset 0 4px 8px rgba(255,255,255,0.8),
+    inset 0 -4px 12px rgba(0,0,0,0.08),
+    inset 4px 0 8px rgba(255,255,255,0.4),
+    inset -4px 0 8px rgba(0,0,0,0.05);
+}
+
+.cake-frosting-mid {
+  height: 16px;
+  background:
+    radial-gradient(circle at 10% 50%, #FF6B8A 9px, transparent 9px),
+    radial-gradient(circle at 30% 50%, #FF477E 7px, transparent 7px),
+    radial-gradient(circle at 50% 50%, #FF6B8A 8px, transparent 8px),
+    radial-gradient(circle at 70% 50%, #FF477E 9px, transparent 9px),
+    radial-gradient(circle at 90% 50%, #FF6B8A 6px, transparent 6px),
+    linear-gradient(180deg, #FF85A1 0%, #FF477E 100%);
+  box-shadow: 0 4px 15px rgba(230,57,70,0.45);
+}
+
+.cake-body-mid {
+  height: 65px;
+  background: linear-gradient(90deg, #D8909E 0%, #F0B8C4 12%, #FFD8E2 30%, #FFF5F8 42%, #FFFFFF 50%, #FFF5F8 58%, #FFD8E2 72%, #F0B8C4 88%, #D8909E 100%);
+  box-shadow:
+    inset 0 5px 10px rgba(255,255,255,0.85),
+    inset 0 -5px 15px rgba(0,0,0,0.08),
+    inset 5px 0 10px rgba(255,255,255,0.4),
+    inset -5px 0 10px rgba(0,0,0,0.05);
+}
+
+.cake-frosting-base {
+  height: 18px;
+  background:
+    radial-gradient(circle at 8% 50%, #FF6B8A 10px, transparent 10px),
+    radial-gradient(circle at 25% 50%, #FF477E 8px, transparent 8px),
+    radial-gradient(circle at 42% 50%, #FF6B8A 9px, transparent 9px),
+    radial-gradient(circle at 58% 50%, #FF477E 10px, transparent 10px),
+    radial-gradient(circle at 75% 50%, #FF6B8A 7px, transparent 7px),
+    radial-gradient(circle at 92% 50%, #FF477E 8px, transparent 8px),
+    linear-gradient(180deg, #FF85A1 0%, #FF477E 100%);
+  box-shadow: 0 5px 18px rgba(230,57,70,0.5);
+}
+
+.cake-body-base {
+  height: 80px;
+  background: linear-gradient(90deg, #C8808E 0%, #E8A8B4 10%, #FFC0CC 25%, #FFE0E8 38%, #FFF8FA 46%, #FFFFFF 50%, #FFF8FA 54%, #FFE0E8 62%, #FFC0CC 75%, #E8A8B4 90%, #C8808E 100%);
+  box-shadow:
+    inset 0 6px 12px rgba(255,255,255,0.9),
+    inset 0 -6px 18px rgba(0,0,0,0.08),
+    inset 6px 0 12px rgba(255,255,255,0.45),
+    inset -6px 0 12px rgba(0,0,0,0.06);
+}
+
+.cake-shine {
+  position: absolute;
+  top: 0; left: 10%; right: 55%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.15) 50%, transparent 100%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.cake-drip-layer {
+  position: absolute;
+  bottom: -2px; left: 0; right: 0;
+  height: 8px;
+  background: linear-gradient(180deg, #FF477E 0%, #E63946 100%);
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 3px 8px rgba(230,57,70,0.35);
+}
+
+.cake-plate {
+  height: 12px;
+  background: linear-gradient(180deg, #F0F0F0 0%, #D4D4D4 40%, #A0A0A0 100%);
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
+  box-shadow:
+    0 4px 12px rgba(0,0,0,0.3),
+    inset 0 2px 4px rgba(255,255,255,0.8),
+    inset 0 -1px 3px rgba(0,0,0,0.15);
+}
+
+/* ==========================================
+   POLAROID WASHI TAPE - Paper Tape
+   ========================================== */
+.washi-tape-real {
+  position: relative;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.8) 0px,
+      rgba(240,240,240,0.6) 1px,
+      rgba(255,255,255,0.8) 2px
+    ),
+    linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(245,245,240,0.8) 50%, rgba(255,255,255,0.7) 100%);
+  backdrop-filter: blur(4px);
+  box-shadow:
+    0 2px 8px rgba(0,0,0,0.15),
+    0 1px 3px rgba(0,0,0,0.1),
+    inset 0 0 0 1px rgba(0,0,0,0.03);
+  border-left: 2.5px dashed rgba(0,0,0,0.12);
+  border-right: 2.5px dashed rgba(0,0,0,0.12);
+}
+.washi-tape-real::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 40%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/* ==========================================
+   SATIN RIBBON - Shiny Silk Texture
+   ========================================== */
+.satin-ribbon-shadow {
+  filter:
+    drop-shadow(0 4px 8px rgba(139,38,62,0.3))
+    drop-shadow(0 12px 24px rgba(139,38,62,0.25))
+    drop-shadow(0 20px 40px rgba(139,38,62,0.15));
+}
+
+/* ==========================================
+   FLOATING ANIMATION
+   ========================================== */
+.animate-float-slow {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%      { transform: translateY(-10px) rotate(1.5deg); }
+}
+
+/* ==========================================
+   REALISTIC PHOTO FRAME - Polaroid Style
+   ========================================== */
+.polaroid-frame {
+  background: #fff;
+  box-shadow:
+    0 4px 12px rgba(0,0,0,0.2),
+    0 1px 4px rgba(0,0,0,0.1),
+    inset 0 0 0 1px rgba(0,0,0,0.05);
+}
+.polaroid-frame::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 30%;
+  background: linear-gradient(180deg, rgba(0,0,0,0.02) 0%, transparent 100%);
+  pointer-events: none;
+}
+.polaroid-frame img {
+  width: 100%;
+  height: auto;
+  min-height: 12rem;
+  max-height: 20rem;
+  object-fit: contain;
+  display: block;
+  background: #f8f8f8;
+}
+
+/* ==========================================
+   ROMANTIC PARCHMENT LETTER
+   ========================================== */
+#letter-modal .bg-gradient-to-b {
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"),
+    linear-gradient(to bottom, #F5E6D0, #FDF5E6, #F0E0C8);
+}
+
+/* ==========================================
+   MEMORY CARD GAME
+   ========================================== */
+.game-card {
+  aspect-ratio: 1;
+  perspective: 600px;
+  cursor: pointer;
+}
+.game-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+.game-card.flipped .game-card-inner {
+  transform: rotateY(180deg);
+}
+.game-card-front, .game-card-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+}
+.game-card-front {
+  background: linear-gradient(135deg, #8B263E, #4A121E);
+  border: 2px solid #D4AF37;
+  box-shadow: 0 2px 10px rgba(212,175,55,0.3);
+}
+.game-card-front::after {
+  content: '?';
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #D4AF37;
+}
+.game-card-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(135deg, #FFF0F5, #F7E7CE);
+  border: 2px solid #D4AF37;
+  box-shadow: 0 2px 10px rgba(212,175,55,0.3);
+}
+.game-card.matched .game-card-inner {
+  transform: rotateY(180deg);
+}
+.game-card.matched {
+  pointer-events: none;
+}
+.game-card.matched .game-card-back {
+  background: linear-gradient(135deg, #D4AF37, #FCE8B3);
+  animation: matchPop 0.4s ease;
+}
+@keyframes matchPop {
+  0% { transform: rotateY(180deg) scale(1); }
+  50% { transform: rotateY(180deg) scale(1.15); }
+  100% { transform: rotateY(180deg) scale(1); }
+}
+
+/* ==========================================
+   BUTTON PRESS EFFECT
+   ========================================== */
+.btn-royal {
+  background: linear-gradient(135deg, #D4AF37 0%, #FCE8B3 30%, #D4AF37 50%, #A37C27 100%);
+  box-shadow:
+    0 4px 15px rgba(212,175,55,0.4),
+    0 2px 4px rgba(0,0,0,0.2),
+    inset 0 1px 0 rgba(255,245,200,0.6),
+    inset 0 -1px 0 rgba(0,0,0,0.1);
+  transition: all 0.15s ease;
+}
+.btn-royal:hover {
+  box-shadow:
+    0 6px 20px rgba(212,175,55,0.5),
+    0 3px 8px rgba(0,0,0,0.2),
+    inset 0 1px 0 rgba(255,245,200,0.8);
+}
+.btn-royal:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow:
+    0 2px 8px rgba(212,175,55,0.3),
+    0 1px 2px rgba(0,0,0,0.2),
+    inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* ==========================================
+   GEM - Realistic Faceted Diamond
+   ========================================== */
+.gem-glow {
+  filter: drop-shadow(0 0 15px rgba(255,105,180,0.6)) drop-shadow(0 0 30px rgba(255,105,180,0.3));
+}
+.gem-glow::after {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(circle, rgba(255,105,180,0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: gemPulse 2s ease-in-out infinite;
+}
+@keyframes gemPulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50%      { opacity: 1; transform: scale(1.1); }
+}
+
+/* ==========================================
+   CARD - Soft Paper Card
+   ========================================== */
+.paper-card {
+  background: linear-gradient(145deg, #FFFDF7 0%, #FFF8F0 50%, #FFFDF7 100%);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.12),
+    0 4px 10px rgba(0,0,0,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.9),
+    inset 0 -1px 0 rgba(0,0,0,0.03);
+  border: 1px solid rgba(212,175,55,0.2);
+}
+
+/* ==========================================
+   SECTION DIVIDER - Thin Gold Line
+   ========================================== */
+.section-divider {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+.section-divider-dark {
+  background: transparent;
+}
+.divider-ornament {
+  width: 100%;
+  height: 12px;
+  position: relative;
+  background:
+    repeating-linear-gradient(90deg,
+      transparent 0px,
+      transparent 14px,
+      #D4AF37 14px,
+      #D4AF37 16px,
+      transparent 16px,
+      transparent 20px
+    );
+  mask-image: linear-gradient(90deg, transparent 5%, black 20%, black 80%, transparent 95%);
+}
+.divider-ornament::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 14px;
+  height: 14px;
+  background: linear-gradient(135deg, #FCE8B3, #D4AF37, #FCE8B3);
+  box-shadow: 0 0 8px rgba(212,175,55,0.6), inset 0 0 3px rgba(255,255,255,0.5);
+  border: 1px solid #FCE8B3;
+  z-index: 2;
+}
+.divider-ornament::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #D4AF37 20%, #FCE8B3 50%, #D4AF37 80%, transparent);
+}
+/* Chain link dots along the line */
+.section-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 160px;
+  height: 3px;
+  background:
+    radial-gradient(circle 3px at 20px 50%, #D4AF37 100%, transparent 100%),
+    radial-gradient(circle 2px at 40px 50%, #FCE8B3 100%, transparent 100%),
+    radial-gradient(circle 3px at 60px 50%, #D4AF37 100%, transparent 100%),
+    radial-gradient(circle 2px at 80px 50%, #FCE8B3 100%, transparent 100%),
+    radial-gradient(circle 3px at 100px 50%, #D4AF37 100%, transparent 100%),
+    radial-gradient(circle 2px at 120px 50%, #FCE8B3 100%, transparent 100%),
+    radial-gradient(circle 3px at 140px 50%, #D4AF37 100%, transparent 100%);
+  z-index: 1;
+}
+
+/* ==========================================
+   DECORATIVE FRAMES (برواز)
+   ========================================== */
+
+/* Web page outer frame */
+.page-frame {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  border: 3px solid transparent;
+  border-image: linear-gradient(135deg, #D4AF37 0%, #FCE8B3 25%, #D4AF37 50%, #FCE8B3 75%, #D4AF37 100%) 1;
+}
+.page-frame::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(212,175,55,0.4);
+}
+.page-frame::after {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(212,175,55,0.2);
+}
+
+/* Corner ornaments for page frame */
+.page-frame-corner {
+  position: fixed;
+  z-index: 91;
+  pointer-events: none;
+  width: 50px;
+  height: 50px;
+}
+.page-frame-corner svg {
+  width: 100%;
+  height: 100%;
+}
+.page-frame-corner--tl { top: 8px; left: 8px; }
+.page-frame-corner--tr { top: 8px; right: 8px; transform: scaleX(-1); }
+.page-frame-corner--bl { bottom: 8px; left: 8px; transform: scaleY(-1); }
+.page-frame-corner--br { bottom: 8px; right: 8px; transform: scale(-1); }
+
+/* Section frame */
+.section-frame {
+  position: relative;
+  margin: 0 auto;
+  border: 2px solid rgba(212,175,55,0.5);
+  border-radius: 16px;
+  padding: 2px;
+  background: transparent;
+}
+.section-frame::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgba(212,175,55,0.25);
+  border-radius: 12px;
+  pointer-events: none;
+}
+.section-frame-inner {
+  border: 1px solid rgba(212,175,55,0.15);
+  border-radius: 10px;
+  padding: 2rem 1rem;
+}
+/* Section frame corner gems */
+.section-frame .frame-gem {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: linear-gradient(135deg, #FCE8B3, #D4AF37);
+  transform: rotate(45deg);
+  box-shadow: 0 0 6px rgba(212,175,55,0.6);
+  z-index: 5;
+}
+.section-frame .frame-gem--tl { top: -5px; left: -5px; }
+.section-frame .frame-gem--tr { top: -5px; right: -5px; }
+.section-frame .frame-gem--bl { bottom: -5px; left: -5px; }
+.section-frame .frame-gem--br { bottom: -5px; right: -5px; }
