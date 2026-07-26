@@ -34,6 +34,7 @@ function checkPassword() {
 
   if (input === 'love') {
     loginScreen.classList.add('hidden');
+    tryPlayHeroVideo();
     showLetter();
   } else {
     errorMsg.classList.remove('hidden');
@@ -49,6 +50,14 @@ const bgSong = document.getElementById('bg-song');
 function initAudio() {
   if (!audioCtx) {
     audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+}
+
+function tryPlayHeroVideo() {
+  const video = document.querySelector('section video');
+  if (video) {
+    video.currentTime = 0;
+    video.play().catch(() => {});
   }
 }
 
@@ -233,6 +242,7 @@ function showLetter() {
 function enterWebsite() {
   document.getElementById('letter-modal').classList.add('hidden');
   document.getElementById('main-content').classList.remove('hidden');
+  tryPlayHeroVideo();
   triggerConfetti();
   initAudio();
 }

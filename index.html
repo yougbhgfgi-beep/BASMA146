@@ -213,8 +213,8 @@
     </div>
 
     <!-- HERO SECTION - Video Background -->
-    <section class="h-[100dvh] relative flex items-center justify-center overflow-hidden">
-      <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover" style="min-width:100%; min-height:100%;">
+    <section class="h-[100dvh] relative flex items-center justify-center overflow-hidden" style="background: url('loading-bg.jpg') center/cover no-repeat;">
+      <video autoplay muted loop playsinline preload="auto" class="absolute inset-0 w-full h-full object-cover" style="min-width:100%; min-height:100%;" onerror="this.style.display='none'">
         <source src="bg-video.mp4" type="video/mp4">
       </video>
       <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/40"></div>
