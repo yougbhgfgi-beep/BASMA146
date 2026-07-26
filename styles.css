@@ -695,3 +695,41 @@ body {
 .section-frame .frame-gem--tr { top: -5px; right: -5px; }
 .section-frame .frame-gem--bl { bottom: -5px; left: -5px; }
 .section-frame .frame-gem--br { bottom: -5px; right: -5px; }
+
+/* ==========================================
+   MOBILE RESPONSIVE FIXES
+   ========================================== */
+@media (max-width: 640px) {
+  .section-frame-inner {
+    padding: 1.25rem 0.75rem;
+  }
+  .page-frame {
+    border-width: 2px;
+  }
+  .page-frame::before {
+    inset: 4px;
+  }
+  .page-frame::after {
+    inset: 8px;
+  }
+  .page-frame-corner {
+    width: 35px;
+    height: 35px;
+  }
+  .section-frame .frame-gem {
+    width: 8px;
+    height: 8px;
+  }
+  .section-frame .frame-gem--tl { top: -4px; left: -4px; }
+  .section-frame .frame-gem--tr { top: -4px; right: -4px; }
+  .section-frame .frame-gem--bl { bottom: -4px; left: -4px; }
+  .section-frame .frame-gem--br { bottom: -4px; right: -4px; }
+}
+@media (max-width: 380px) {
+  .polaroid-frame img {
+    max-height: 16rem;
+  }
+  .game-card {
+    font-size: 1.25rem;
+  }
+}

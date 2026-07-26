@@ -3,12 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>عيد ميلاد أرق وأجمل أميرة - نوران</title>
+  <title>عيد ميلاد نوران 🎂</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>" type="image/svg+xml">
   <meta name="theme-color" content="#8B263E">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>">
+  <link rel="manifest" href="manifest.json">
+  <!-- Open Graph for Social Sharing -->
+  <meta property="og:title" content="🎂 عيد ميلاد نوران - مفاجأة ملكية">
+  <meta property="og:description" content="🎉 كل سنة وانتِ بخير يا نوران! مفاجأة عيد ميلاد ملكية بانتظارك 💕 اضغعي واتفرجي!">
+  <meta property="og:image" content="https://yougbhgfgi-beep.github.io/BASMA146/share.png">
+  <meta property="og:url" content="https://yougbhgfgi-beep.github.io/BASMA146/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="🎂 عيد ميلاد نوران">
+  <meta name="twitter:description" content="🎉 مفاجأة ملكية لعيد ميلاد نوران! 💕">
+  <meta name="twitter:image" content="https://yougbhgfgi-beep.github.io/BASMA146/share.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -480,5 +491,10 @@
 
   <!-- App JavaScript -->
   <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js').catch(() => {});
+    }
+  </script>
 </body>
 </html>
