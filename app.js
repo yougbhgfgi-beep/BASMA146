@@ -34,7 +34,6 @@ function checkPassword() {
 
   if (input === 'love') {
     loginScreen.classList.add('hidden');
-    tryPlayHeroVideo();
     showLetter();
   } else {
     errorMsg.classList.remove('hidden');
@@ -53,31 +52,10 @@ function initAudio() {
   }
 }
 
-function tryPlayHeroVideo() {
-  const video = document.querySelector('section video');
-  if (video) {
-    video.currentTime = 0;
-    video.play().catch(() => {});
-  }
-}
-
 function playSong() {
   bgSong.currentTime = 0;
   bgSong.play();
-  pauseHeroVideo();
-  bgSong.onended = function() {
-    resumeHeroVideo();
-  };
-}
-
-function pauseHeroVideo() {
-  const video = document.querySelector('section video');
-  if (video) video.pause();
-}
-
-function resumeHeroVideo() {
-  const video = document.querySelector('section video');
-  if (video) video.play();
+  bgSong.onended = function() {};
 }
 
 function toggleAudio() {
@@ -90,7 +68,6 @@ function toggleAudio() {
   } else {
     isPlaying = false;
     bgSong.pause();
-    resumeHeroVideo();
     icon.className = "fa-solid fa-music text-xl text-champagne";
   }
 }
@@ -242,7 +219,6 @@ function showLetter() {
 function enterWebsite() {
   document.getElementById('letter-modal').classList.add('hidden');
   document.getElementById('main-content').classList.remove('hidden');
-  tryPlayHeroVideo();
   triggerConfetti();
   initAudio();
 }
