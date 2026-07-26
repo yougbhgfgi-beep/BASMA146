@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>عيد ميلاد أرق وأجمل أميرة - نوران</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>" type="image/svg+xml">
+  <meta name="theme-color" content="#8B263E">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cairo:wght@300;400;600;700;800;900&family=Marhey:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;1,600;1,800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'pink-soft': '#FFF0F5',
+            'pink-baby': '#FFB6C1',
+            'pink-rose': '#FF69B4',
+            'rose-gold': '#B76E79',
+            'burgundy-luxury': '#8B263E',
+            'burgundy-dark': '#4A121E',
+            'burgundy-deep': '#28070F',
+            'cream-luxury': '#FFFDF7',
+            'champagne': '#F7E7CE',
+            'gold-light': '#FCE8B3',
+            'gold-royal': '#D4AF37',
+            'gold-dark': '#A37C27'
+          },
+          fontFamily: {
+            cairo: ['Cairo', 'sans-serif'],
+            handwriting: ['Alex Brush', 'cursive'],
+            marhey: ['Marhey', 'cursive'],
+            serifRoyal: ['Playfair Display', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-burgundy-deep text-gray-800 antialiased selection:bg-pink-rose selection:text-white">
+  <canvas id="particles-canvas" class="fixed inset-0 pointer-events-none z-[99]"></canvas>
+  <audio id="bg-song" src="song.mp3"></audio>
+
+  <!-- LOADING SCREEN -->
+  <div id="loading-screen" class="fixed inset-0 z-[100] flex items-center justify-center p-4 transition-opacity duration-1000" style="background: url('loading-bg.png') center/cover no-repeat;">
+    <div class="absolute inset-0 bg-black/30"></div>
+    <div class="relative w-full max-w-sm sm:max-w-md bg-white/20 backdrop-blur-md rounded-3xl p-6 sm:p-8 shadow-2xl border-4 border-white/50 overflow-hidden text-center flex flex-col items-center justify-between min-h-[500px]">
+      <div class="absolute -top-12 -left-12 w-48 h-48 bg-pink-rose/20 rounded-full blur-3xl"></div>
+      <div class="absolute -bottom-12 -right-12 w-48 h-48 bg-gold-royal/20 rounded-full blur-3xl"></div>
+      <div class="relative z-10 mt-2 flex items-center justify-center gap-2">
+        <svg class="w-20 h-20 animate-float-slow" viewBox="0 0 100 100">
+          <polygon points="50,15 22,82 78,82" fill="#E29578" stroke="#ffffff" stroke-width="2.5"/>
+          <circle cx="50" cy="15" r="7" fill="#6B705C"/>
+          <circle cx="38" cy="45" r="3.5" fill="#ffffff"/>
+          <circle cx="58" cy="55" r="3.5" fill="#ffffff"/>
+          <circle cx="48" cy="70" r="3.5" fill="#ffffff"/>
+        </svg>
+        <svg class="w-24 h-24 -ml-4 animate-float-slow" style="animation-delay: 0.4s;" viewBox="0 0 100 100">
+          <polygon points="50,10 18,88 82,88" fill="#8E9AAF" stroke="#ffffff" stroke-width="2.5"/>
+          <circle cx="50" cy="10" r="8" fill="#CBC0D3"/>
+          <path d="M25,68 Q50,62 75,68" stroke="#ffffff" stroke-width="4" fill="none"/>
+          <path d="M30,48 Q50,42 70,48" stroke="#ffffff" stroke-width="4" fill="none"/>
+        </svg>
+      </div>
+      <div class="relative z-10 space-y-1 my-2">
+        <h2 class="font-handwriting text-4xl sm:text-5xl text-[#5E60CE] font-bold drop-shadow-sm">Happy Birthday</h2>
+        <p class="font-marhey text-2xl text-[#581825] font-bold">احلى واجمل نوران</p>
+      </div>
+      <div class="relative z-10 flex items-end justify-center gap-3.5 my-3">
+        <div class="flex flex-col items-center"><div class="real-flame w-3.5 h-5 mb-1"></div><div class="w-3.5 h-12 candle-stick rounded-t-sm border border-white/80"></div></div>
+        <div class="flex flex-col items-center"><div class="real-flame w-3.5 h-5 mb-1"></div><div class="w-3.5 h-14 gold-candle-stick rounded-t-sm border border-white/80"></div></div>
+        <div class="flex flex-col items-center"><div class="real-flame w-4 h-6 mb-1"></div><div class="w-4 h-16 candle-stick rounded-t-sm border border-white/80"></div></div>
+        <div class="flex flex-col items-center"><div class="real-flame w-3.5 h-5 mb-1"></div><div class="w-3.5 h-14 gold-candle-stick rounded-t-sm border border-white/80"></div></div>
+        <div class="flex flex-col items-center"><div class="real-flame w-3.5 h-5 mb-1"></div><div class="w-3.5 h-12 candle-stick rounded-t-sm border border-white/80"></div></div>
+      </div>
+      <div class="relative z-10 w-full flex items-center justify-between px-2 gap-3 mt-2">
+        <div class="flex items-center -space-x-2"><div class="w-6 h-8 bg-pink-500 rounded-full opacity-80 shadow-sm"></div><div class="w-7 h-9 bg-purple-500 rounded-full opacity-90 shadow-sm -mt-3"></div></div>
+        <div class="flex-1">
+          <div class="flex justify-between text-xs font-bold text-[#5E60CE] mb-1"><span>بنحضر مفاجاة نوران...</span><span id="loading-percentage">0%</span></div>
+          <div class="w-full h-3 bg-white/90 rounded-full overflow-hidden p-0.5 shadow-inner border border-white"><div id="loading-bar" class="h-full bg-gradient-to-r from-[#8E9AAF] via-[#7209B7] to-[#5E60CE] rounded-full transition-all duration-100 ease-linear w-0"></div></div>
+        </div>
+        <div class="w-10 h-10 bg-[#B8C0EC] rounded-t-xl border-t-4 border-white flex items-center justify-center text-xs text-white font-bold shadow-sm">🎂</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGIN SCREEN -->
+  <div id="login-screen" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-gradient-to-br from-[#E882A7] via-[#F4A6C1] to-[#D86891]">
+    <div class="relative w-full max-w-md bg-gradient-to-b from-[#F7B7CF] to-[#EA98B6] rounded-3xl p-6 sm:p-8 shadow-2xl border-4 border-white overflow-hidden text-center flex flex-col items-center justify-between min-h-[580px] my-auto">
+      <div class="absolute top-2 left-0 right-0 flex justify-between px-6 z-10 opacity-90">
+        <div class="flex gap-1.5">
+          <div class="w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[20px] border-t-pink-500"></div>
+          <div class="w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[20px] border-t-yellow-300"></div>
+          <div class="w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[20px] border-t-purple-400"></div>
+        </div>
+        <div class="flex gap-1.5">
+          <div class="w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[20px] border-t-purple-400"></div>
+          <div class="w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[20px] border-t-yellow-300"></div>
+          <div class="w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[20px] border-t-pink-500"></div>
+        </div>
+      </div>
+      <div class="relative z-20 mt-3 satin-ribbon-shadow">
+        <svg class="w-28 h-16 animate-float-slow" viewBox="0 0 100 60">
+          <path d="M50,25 C30,5 10,20 25,35 C35,45 50,30 50,25 Z" fill="url(#satinGrad1)"/>
+          <path d="M50,25 C70,5 90,20 75,35 C65,45 50,30 50,25 Z" fill="url(#satinGrad2)"/>
+          <circle cx="50" cy="25" r="7" fill="#8B263E"/>
+          <path d="M46,30 L30,58 L42,55 L50,32 Z" fill="#D84B75"/>
+          <path d="M54,30 L70,58 L58,55 L50,32 Z" fill="#D84B75"/>
+          <defs>
+            <linearGradient id="satinGrad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FF69B4"/><stop offset="50%" stop-color="#E65B86"/><stop offset="100%" stop-color="#8B263E"/></linearGradient>
+            <linearGradient id="satinGrad2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FF69B4"/><stop offset="50%" stop-color="#E65B86"/><stop offset="100%" stop-color="#8B263E"/></linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div class="relative z-10 w-full bg-[#FFE5EC]/95 backdrop-blur-md rounded-2xl p-5 sm:p-6 shadow-inner border-2 border-white my-2 flex flex-col items-center">
+        <p class="font-handwriting text-3xl sm:text-4xl text-[#B83B62] font-bold">Dear. Nouran</p>
+        <h1 class="font-handwriting text-5xl sm:text-6xl text-[#8E2A49] font-extrabold -mt-1 mb-4 drop-shadow-sm">Happy Birthday</h1>
+        <div class="w-full max-w-xs bg-white/95 rounded-2xl p-4 shadow-xl border border-pink-200">
+          <div class="w-10 h-10 mx-auto bg-pink-100 rounded-full flex items-center justify-center text-pink-600 mb-2 shadow-inner"><i class="fa-solid fa-lock text-base"></i></div>
+          <p class="text-xs text-pink-700 font-bold mb-3">اكتبي كلمة السر المخفية</p>
+          <div class="space-y-3">
+            <input type="password" id="password-input" class="w-full text-center px-4 py-2.5 rounded-xl border-2 border-transparent bg-pink-50 focus:border-pink-400 outline-none text-pink-300 font-bold text-sm transition-all" style="caret-color: transparent;">
+            <button onclick="checkPassword()" class="w-full py-2.5 bg-gradient-to-r from-[#D84B75] via-[#B83B62] to-[#8E2A49] hover:from-[#B83B62] hover:to-[#581825] text-white font-bold rounded-xl shadow-md hover:shadow-lg transition-all transform active:scale-95 text-sm flex items-center justify-center gap-2">
+              <span>افتحي العالم السحري</span><i class="fa-solid fa-arrow-left"></i>
+            </button>
+          </div>
+          <p id="password-error" class="text-xs text-red-500 font-bold mt-2 hidden animate-pulse">كلمة السر مش صحيحة!</p>
+        </div>
+      </div>
+      <div class="relative z-10 w-full flex items-end justify-between px-2">
+        <div class="flex items-center -space-x-3"><div class="w-8 h-10 bg-pink-400 rounded-full opacity-90 shadow-sm border border-white"></div><div class="w-9 h-11 bg-pink-500 rounded-full shadow-md -mt-4 border border-white"></div></div>
+        <div class="flex flex-col items-center">
+          <div class="flex gap-1 mb-[-2px]"><div class="w-2 h-2 bg-red-500 rounded-full"></div><div class="w-2 h-2 bg-red-500 rounded-full"></div><div class="w-2 h-2 bg-red-500 rounded-full"></div></div>
+          <div class="w-20 h-10 bg-yellow-200 rounded-t-xl border-t-4 border-pink-400 flex items-center justify-center text-xs text-pink-700 font-bold shadow-sm">🎂</div>
+        </div>
+        <div class="flex items-center -space-x-3"><div class="w-9 h-11 bg-pink-500 rounded-full shadow-md -mt-4 border border-white"></div><div class="w-8 h-10 bg-pink-400 rounded-full opacity-90 shadow-sm border border-white"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROMANTIC LETTER MODAL -->
+  <div id="letter-modal" class="hidden fixed inset-0 z-[150] flex items-center justify-center p-4 bg-black/70 backdrop-blur-md">
+    <div class="relative w-full max-w-md">
+      <!-- Parchment -->
+      <div class="relative bg-gradient-to-b from-[#F5E6D0] via-[#FDF5E6] to-[#F0E0C8] rounded-2xl p-8 sm:p-10 shadow-2xl border-4 border-[#D4AF37]/50" style="box-shadow: 0 0 40px rgba(212,175,55,0.2), inset 0 0 60px rgba(139,38,62,0.05);">
+        <!-- Corner decorations -->
+        <div class="absolute top-3 left-3 w-8 h-8 border-t-2 border-l-2 border-[#D4AF37] rounded-tl-lg"></div>
+        <div class="absolute top-3 right-3 w-8 h-8 border-t-2 border-r-2 border-[#D4AF37] rounded-tr-lg"></div>
+        <div class="absolute bottom-3 left-3 w-8 h-8 border-b-2 border-l-2 border-[#D4AF37] rounded-bl-lg"></div>
+        <div class="absolute bottom-3 right-3 w-8 h-8 border-b-2 border-r-2 border-[#D4AF37] rounded-br-lg"></div>
+        <!-- Wax seal -->
+        <div class="absolute -top-5 left-1/2 -translate-x-1/2 w-12 h-12 bg-gradient-to-br from-[#8B263E] to-[#4A121E] rounded-full flex items-center justify-center shadow-lg border-2 border-[#D4AF37]">
+          <span class="text-lg">💌</span>
+        </div>
+        <!-- Content -->
+        <div class="text-center mt-4 space-y-4">
+          <h3 class="font-marhey text-xl sm:text-2xl font-bold text-[#4A121E]">رسالة من القلب</h3>
+          <div class="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto"></div>
+          <p id="letter-text" class="text-[#5E2129] text-sm sm:text-base leading-loose font-semibold text-right min-h-[120px]"></p>
+          <div class="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto"></div>
+          <p class="font-handwriting text-lg text-[#8B263E]">With All My Love 💕</p>
+        </div>
+        <!-- Enter button (hidden until text finishes) -->
+        <div id="letter-enter-btn" class="hidden text-center mt-6">
+          <button onclick="enterWebsite()" class="px-8 py-3 bg-gradient-to-r from-[#8B263E] via-[#D4AF37] to-[#8B263E] text-white font-extrabold rounded-full text-sm shadow-xl border-2 border-[#D4AF37] hover:scale-105 transition-transform active:scale-95">
+            🎂 ادخلي عيد الميلاد 🎂
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div id="main-content" class="hidden relative z-10 transition-opacity duration-1000" style="background: url('gallery-bg.png') center/cover no-repeat fixed;">
+    <div class="absolute inset-0 bg-black/30 pointer-events-none"></div>
+
+    <!-- PAGE FRAME -->
+    <div class="page-frame"></div>
+    <div class="page-frame-corner page-frame-corner--tl"><svg viewBox="0 0 50 50"><path d="M5,25 Q5,5 25,5" stroke="#D4AF37" stroke-width="2" fill="none"/><path d="M8,25 Q8,8 25,8" stroke="#FCE8B3" stroke-width="1" fill="none"/><circle cx="25" cy="5" r="3" fill="#D4AF37"/><circle cx="5" cy="25" r="3" fill="#D4AF37"/></svg></div>
+    <div class="page-frame-corner page-frame-corner--tr"><svg viewBox="0 0 50 50"><path d="M5,25 Q5,5 25,5" stroke="#D4AF37" stroke-width="2" fill="none"/><path d="M8,25 Q8,8 25,8" stroke="#FCE8B3" stroke-width="1" fill="none"/><circle cx="25" cy="5" r="3" fill="#D4AF37"/><circle cx="5" cy="25" r="3" fill="#D4AF37"/></svg></div>
+    <div class="page-frame-corner page-frame-corner--bl"><svg viewBox="0 0 50 50"><path d="M5,25 Q5,5 25,5" stroke="#D4AF37" stroke-width="2" fill="none"/><path d="M8,25 Q8,8 25,8" stroke="#FCE8B3" stroke-width="1" fill="none"/><circle cx="25" cy="5" r="3" fill="#D4AF37"/><circle cx="5" cy="25" r="3" fill="#D4AF37"/></svg></div>
+    <div class="page-frame-corner page-frame-corner--br"><svg viewBox="0 0 50 50"><path d="M5,25 Q5,5 25,5" stroke="#D4AF37" stroke-width="2" fill="none"/><path d="M8,25 Q8,8 25,8" stroke="#FCE8B3" stroke-width="1" fill="none"/><circle cx="25" cy="5" r="3" fill="#D4AF37"/><circle cx="5" cy="25" r="3" fill="#D4AF37"/></svg></div>
+
+    <div class="fixed bottom-6 left-6 z-50">
+      <button onclick="toggleAudio()" id="audio-btn" class="w-14 h-14 bg-gradient-to-tr from-burgundy-luxury via-pink-rose to-gold-royal rounded-full flex items-center justify-center text-white shadow-2xl border-2 border-gold-royal hover:scale-110 transition-transform active:scale-95 group">
+        <i id="audio-icon" class="fa-solid fa-music text-xl text-champagne group-hover:animate-spin"></i>
+      </button>
+    </div>
+
+    <!-- HERO SECTION - Video Background -->
+    <section class="h-[100dvh] relative flex items-center justify-center overflow-hidden">
+      <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover" style="min-width:100%; min-height:100%;">
+        <source src="bg-video.mp4" type="video/mp4">
+      </video>
+      <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/40"></div>
+      <div class="relative z-10 text-center px-4">
+        <h1 class="font-marhey text-8xl sm:text-[10rem] font-extrabold text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.6)] tracking-wider" style="text-shadow: 0 0 60px rgba(255,105,180,0.7), 0 0 120px rgba(255,105,180,0.3), 0 4px 30px rgba(0,0,0,0.5);">نوران</h1>
+        <p class="font-handwriting text-4xl sm:text-6xl text-white mt-3 drop-shadow-xl" style="text-shadow: 0 0 30px rgba(255,255,255,0.6), 0 0 60px rgba(255,105,180,0.3);">Happy Birthday</p>
+      </div>
+    </section>
+
+    <!-- ORNAMENTAL DIVIDER -->
+    <div class="section-divider">
+      <div class="divider-ornament"></div>
+    </div>
+
+    <!-- CAKE SECTION -->
+    <section id="cake-section" class="py-20 px-4 text-white text-center relative overflow-hidden">
+      <div class="section-frame max-w-2xl mx-auto"><span class="frame-gem frame-gem--tl"></span><span class="frame-gem frame-gem--tr"></span><span class="frame-gem frame-gem--bl"></span><span class="frame-gem frame-gem--br"></span>
+      <div class="section-frame-inner">
+      <div class="max-w-xl mx-auto space-y-8 relative z-10">
+        <div class="space-y-2">
+          <h2 class="text-3xl sm:text-5xl font-bold font-marhey text-gold-light">تورتة عيد الميلاد الملكية</h2>
+          <p class="text-pink-baby text-xs sm:text-sm font-semibold">اطفي الشموع واتمني امنية حلوة لسنتك الجديدة يا نوران!</p>
+        </div>
+
+        <div class="relative py-8 flex flex-col items-center justify-center">
+
+          <!-- Candles - On top of cake -->
+          <div id="candles-container" class="flex justify-center gap-3 sm:gap-4 z-30 absolute top-0 left-1/2 -translate-x-1/2">
+            <div class="candle cursor-pointer flex flex-col items-center" onclick="blowCandle(this)"><div class="real-flame w-3 h-5 mb-0.5"></div><div class="w-3 h-10 candle-stick rounded-t-sm"></div></div>
+            <div class="candle cursor-pointer flex flex-col items-center" onclick="blowCandle(this)"><div class="real-flame w-3 h-5 mb-0.5"></div><div class="w-3 h-12 gold-candle-stick rounded-t-sm"></div></div>
+            <div class="candle cursor-pointer flex flex-col items-center" onclick="blowCandle(this)"><div class="real-flame w-4 h-6 mb-0.5"></div><div class="w-4 h-16 candle-stick rounded-t-sm"></div></div>
+            <div class="candle cursor-pointer flex flex-col items-center" onclick="blowCandle(this)"><div class="real-flame w-3 h-5 mb-0.5"></div><div class="w-3 h-12 gold-candle-stick rounded-t-sm"></div></div>
+            <div class="candle cursor-pointer flex flex-col items-center" onclick="blowCandle(this)"><div class="real-flame w-3 h-5 mb-0.5"></div><div class="w-3 h-10 candle-stick rounded-t-sm"></div></div>
+          </div>
+
+          <!-- Tier 1 - Top (Smallest) -->
+          <div class="cake-tier-1 relative z-20 w-44 sm:w-52 rounded-t-[50%] overflow-hidden">
+            <div class="cake-frosting-top"></div>
+            <div class="cake-body-top">
+              <div class="cake-shine"></div>
+            </div>
+            <div class="cake-drip-layer"></div>
+          </div>
+
+          <!-- Tier 2 - Middle -->
+          <div class="cake-tier-2 relative z-10 w-56 sm:w-64 -mt-2 overflow-hidden">
+            <div class="cake-frosting-mid"></div>
+            <div class="cake-body-mid">
+              <div class="cake-shine"></div>
+            </div>
+            <div class="cake-drip-layer"></div>
+          </div>
+
+          <!-- Tier 3 - Base (Largest) -->
+          <div class="cake-tier-3 relative z-[5] w-72 sm:w-80 -mt-2 rounded-b-2xl overflow-hidden">
+            <div class="cake-frosting-base"></div>
+            <div class="cake-body-base">
+              <div class="cake-shine"></div>
+              <p class="font-handwriting text-2xl sm:text-3xl text-burgundy-dark font-bold relative z-10 pt-4">Happy Birthday Nouran</p>
+            </div>
+            <div class="cake-plate"></div>
+          </div>
+
+          <div class="mt-8"><button onclick="blowAllCandles()" class="btn-royal px-6 py-3 text-burgundy-dark font-extrabold rounded-full text-sm">ادوسي هنا علشان تطفي كل الشموع وتتمني امنية</button></div>
+        </div>
+      </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- ORNAMENTAL DIVIDER -->
+    <div class="section-divider">
+      <div class="divider-ornament"></div>
+    </div>
+
+
+    <!-- PHOTO GALLERY -->
+    <section class="py-20 px-4 text-white relative overflow-hidden">
+      <div class="section-frame max-w-6xl mx-auto"><span class="frame-gem frame-gem--tl"></span><span class="frame-gem frame-gem--tr"></span><span class="frame-gem frame-gem--bl"></span><span class="frame-gem frame-gem--br"></span>
+      <div class="section-frame-inner">
+      <div class="max-w-5xl mx-auto space-y-12">
+        <div class="text-center space-y-3">
+          <span class="px-4 py-1.5 bg-burgundy-luxury text-gold-light rounded-full text-xs font-bold uppercase tracking-widest border border-gold-royal">Photo Collage Memories</span>
+          <h2 class="text-3xl sm:text-5xl font-bold font-marhey text-pink-baby">اجمل حكايات وذكريات نوران</h2>
+          <p class="text-gray-400 text-sm">ألبوم بولاروايد مليان لحظات عسل وحب</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 relative p-2 sm:p-4">
+          <div class="polaroid-frame p-4 rounded-sm text-gray-800 relative transform -rotate-3 hover:rotate-0 hover:scale-105 transition-all duration-300">
+            <div class="washi-tape-real absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-6 z-20"></div>
+            <div class="w-full h-64 rounded-sm overflow-hidden relative border border-gray-200 shadow-inner"><img src="gallery/photo1.jpg" alt="نوران" class="w-full h-full object-cover"/><span class="absolute top-2 right-2 text-xs font-bold bg-pink-rose text-white px-2 py-0.5 rounded-full shadow-sm">Princess</span></div>
+            <div class="pt-4 text-center"><p class="font-handwriting text-2xl text-burgundy-dark font-bold">Happy Birthday My Dear!</p><p class="font-marhey text-xs text-gray-500 mt-1">اشيك وارق اميرة</p></div>
+          </div>
+          <div class="polaroid-frame p-4 rounded-sm text-gray-800 relative transform rotate-2 hover:rotate-0 hover:scale-105 transition-all duration-300">
+            <div class="washi-tape-real absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-6 z-20"></div>
+            <div class="w-full h-64 rounded-sm overflow-hidden relative border border-gray-200 shadow-inner"><img src="gallery/photo2.jpg" alt="نوران" class="w-full h-full object-cover"/><span class="absolute top-2 right-2 text-xs font-bold bg-gold-royal text-burgundy-dark px-2 py-0.5 rounded-full shadow-sm">Foodie Queen</span></div>
+            <div class="pt-4 text-center"><p class="font-handwriting text-2xl text-burgundy-dark font-bold">Sweet Moments</p><p class="font-marhey text-xs text-gray-500 mt-1">حلاوة وخفة دم متتوصفش</p></div>
+          </div>
+          <div class="polaroid-frame p-4 rounded-sm text-gray-800 relative transform -rotate-2 hover:rotate-0 hover:scale-105 transition-all duration-300">
+            <div class="washi-tape-real absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-6 z-20"></div>
+            <div class="w-full h-64 rounded-sm overflow-hidden relative border border-gray-200 shadow-inner"><img src="gallery/photo3.jpg" alt="نوران" class="w-full h-full object-cover"/><span class="absolute top-2 right-2 text-xs font-bold bg-burgundy-luxury text-white px-2 py-0.5 rounded-full shadow-sm">Love You!</span></div>
+            <div class="pt-4 text-center"><p class="font-handwriting text-2xl text-burgundy-dark font-bold">Love You Always!</p><p class="font-marhey text-xs text-gray-500 mt-1">جمال الضحكة والقلب الطيب</p></div>
+          </div>
+          <div class="polaroid-frame p-4 rounded-sm text-gray-800 relative transform rotate-3 hover:rotate-0 hover:scale-105 transition-all duration-300">
+            <div class="washi-tape-real absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-6 z-20"></div>
+            <div class="w-full h-64 rounded-sm overflow-hidden relative border border-gray-200 shadow-inner"><img src="gallery/photo4.jpg" alt="نوران" class="w-full h-full object-cover"/><span class="absolute top-2 right-2 text-xs font-bold bg-pink-rose text-white px-2 py-0.5 rounded-full shadow-sm">My Star</span></div>
+            <div class="pt-4 text-center"><p class="font-handwriting text-2xl text-burgundy-dark font-bold">You Shine So Bright!</p><p class="font-marhey text-xs text-gray-500 mt-1">نجمة نوران اللامعة</p></div>
+          </div>
+          <div class="polaroid-frame p-4 rounded-sm text-gray-800 relative transform -rotate-1 hover:rotate-0 hover:scale-105 transition-all duration-300">
+            <div class="washi-tape-real absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-6 z-20"></div>
+            <div class="w-full h-64 rounded-sm overflow-hidden relative border border-gray-200 shadow-inner"><img src="gallery/photo5.jpg" alt="نوران" class="w-full h-full object-cover"/><span class="absolute top-2 right-2 text-xs font-bold bg-gold-royal text-burgundy-dark px-2 py-0.5 rounded-full shadow-sm">Forever</span></div>
+            <div class="pt-4 text-center"><p class="font-handwriting text-2xl text-burgundy-dark font-bold">Together Always!</p><p class="font-marhey text-xs text-gray-500 mt-1">دائمًا مع بعض</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORNAMENTAL DIVIDER -->
+    <div class="section-divider">
+      <div class="divider-ornament"></div>
+    </div>
+
+    <!-- ABOUT HER -->
+    <section class="py-20 px-4 text-white relative">
+      <div class="section-frame max-w-5xl mx-auto"><span class="frame-gem frame-gem--tl"></span><span class="frame-gem frame-gem--tr"></span><span class="frame-gem frame-gem--bl"></span><span class="frame-gem frame-gem--br"></span>
+      <div class="section-frame-inner">
+      <div class="max-w-4xl mx-auto space-y-10">
+        <div class="text-center space-y-2">
+          <h2 class="text-3xl sm:text-4xl font-bold font-marhey text-gold-light">ليه بنحب نوران؟</h2>
+          <p class="text-pink-baby text-sm font-semibold">صفات ملكية تخلي أي حد يعشق روحك العسل</p>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+          <div class="bg-black/30 backdrop-blur-sm p-5 sm:p-6 rounded-2xl text-center space-y-3 hover:-translate-y-1 transition-transform border border-white/10"><span class="text-4xl block">👑</span><h3 class="font-marhey font-bold text-white text-lg">اميرة</h3><p class="text-xs text-white/70 font-bold">ذوق وشياكة وطيبة ملهاش مثيل</p></div>
+          <div class="bg-black/30 backdrop-blur-sm p-5 sm:p-6 rounded-2xl text-center space-y-3 hover:-translate-y-1 transition-transform border border-white/10"><span class="text-4xl block">🍓</span><h3 class="font-marhey font-bold text-white text-lg">سكر</h3><p class="text-xs text-white/70 font-bold">روحك خفيفة وبتفرحي أي حد معامليكي</p></div>
+          <div class="bg-black/30 backdrop-blur-sm p-5 sm:p-6 rounded-2xl text-center space-y-3 hover:-translate-y-1 transition-transform border border-white/10"><span class="text-4xl block">💎</span><h3 class="font-marhey font-bold text-white text-lg">غالية</h3><p class="text-xs text-white/70 font-bold">مكانتك في القلوب ملهاش بديل</p></div>
+          <div class="bg-black/30 backdrop-blur-sm p-5 sm:p-6 rounded-2xl text-center space-y-3 hover:-translate-y-1 transition-transform border border-white/10"><span class="text-4xl block">✨</span><h3 class="font-marhey font-bold text-white text-lg">مشرقة</h3><p class="text-xs text-white/70 font-bold">حضورك بينور أي مكان يدخل فيه</p></div>
+        </div>
+      </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- ORNAMENTAL DIVIDER -->
+    <div class="section-divider">
+      <div class="divider-ornament"></div>
+    </div>
+
+    <!-- GEM GAME -->
+    <section class="py-20 px-4 text-white relative overflow-hidden">
+      <div class="section-frame max-w-lg mx-auto"><span class="frame-gem frame-gem--tl"></span><span class="frame-gem frame-gem--tr"></span><span class="frame-gem frame-gem--bl"></span><span class="frame-gem frame-gem--br"></span>
+      <div class="section-frame-inner">
+      <div class="max-w-md mx-auto space-y-6 text-center">
+        <div class="space-y-2">
+          <span class="text-3xl">🏰🎮</span>
+          <h2 class="text-2xl sm:text-4xl font-bold font-marhey text-gold-light">لعبة الذاكرة الملكية</h2>
+          <p class="text-pink-baby text-xs sm:text-sm font-semibold">اقلبي الكروت و_Find الأزواج المتشابهة!</p>
+        </div>
+        <div class="bg-black/40 backdrop-blur-sm p-6 rounded-3xl border border-white/10 space-y-5">
+          <div class="flex justify-between items-center text-sm">
+            <span class="text-gold-light font-bold">الحركات: <span id="game-moves">0</span></span>
+            <span class="text-pink-baby font-bold">الأزواج: <span id="game-pairs">0</span> / 6</span>
+          </div>
+          <div id="game-board" class="grid grid-cols-4 gap-3">
+          </div>
+          <button onclick="initGame()" class="w-full py-3 bg-gradient-to-r from-burgundy-luxury via-pink-rose to-burgundy-luxury text-white font-extrabold rounded-full text-sm border-2 border-gold-royal hover:scale-105 transition-transform">🔄 العب تاني</button>
+        </div>
+        <div id="game-win" class="hidden bg-gradient-to-b from-gold-light to-champagne text-burgundy-dark p-6 rounded-3xl font-bold space-y-3 animate-bounce shadow-2xl border-2 border-gold-royal">
+          <p class="text-4xl">👑🎉🏆</p>
+          <p class="text-xl font-marhey">مبروك يا نوران!</p>
+          <p class="text-sm">فزتي في لعبة الذاكرة الملكية!</p>
+          <p class="text-xs text-burgundy-luxury">عندك ذاكرة قوية زي ما انتِ أميرة!</p>
+        </div>
+      </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- ORNAMENTAL DIVIDER -->
+    <div class="section-divider">
+      <div class="divider-ornament"></div>
+    </div>
+
+    <!-- VIDEO SECTION -->
+    <section class="py-12 px-4 text-white relative overflow-hidden">
+      <div class="w-full max-w-4xl mx-auto space-y-6 text-center">
+        <div class="space-y-2">
+          <span class="text-3xl">🎥✨</span>
+          <h2 class="text-3xl sm:text-5xl font-bold font-marhey text-gold-light">فيديو مفاجأة نوران</h2>
+          <p class="text-pink-baby text-xs sm:text-sm font-semibold">اتفرجي على الفيديو ده يا نوران!</p>
+        </div>
+        <div class="rounded-2xl overflow-hidden border-2 border-gold-royal shadow-2xl bg-black w-full">
+          <video controls playsinline class="w-full h-auto" style="max-height: 75vh;">
+            <source src="video.mp4" type="video/mp4">
+            المتصفح بتاعك مش بيدعم الفيديو
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORNAMENTAL DIVIDER -->
+    <div class="section-divider">
+      <div class="divider-ornament"></div>
+    </div>
+
+    <!-- BIRTHDAY TIMER SECTION -->
+    <section class="py-16 px-4 text-white relative overflow-hidden">
+      <div class="section-frame max-w-lg mx-auto"><span class="frame-gem frame-gem--tl"></span><span class="frame-gem frame-gem--tr"></span><span class="frame-gem frame-gem--bl"></span><span class="frame-gem frame-gem--br"></span>
+      <div class="section-frame-inner">
+      <div class="max-w-sm mx-auto space-y-6 text-center">
+        <div class="space-y-2">
+          <span class="text-3xl">🎂🎀</span>
+          <h2 class="text-2xl sm:text-3xl font-bold font-marhey text-gold-light">منذ يوم 25 مايو 2005</h2>
+          <p class="text-pink-baby text-xs font-semibold">نوران بقت كبيرة بقالها كم يوم؟</p>
+        </div>
+        <div class="grid grid-cols-3 gap-3">
+          <div class="bg-black/40 backdrop-blur-sm rounded-2xl p-3 border border-gold-royal/30">
+            <p id="timer-years" class="text-2xl sm:text-3xl font-extrabold text-gold-light font-handwriting">0</p>
+            <p class="text-[10px] text-pink-baby font-bold mt-1">سنة</p>
+          </div>
+          <div class="bg-black/40 backdrop-blur-sm rounded-2xl p-3 border border-gold-royal/30">
+            <p id="timer-months" class="text-2xl sm:text-3xl font-extrabold text-gold-light font-handwriting">0</p>
+            <p class="text-[10px] text-pink-baby font-bold mt-1">شهر</p>
+          </div>
+          <div class="bg-black/40 backdrop-blur-sm rounded-2xl p-3 border border-gold-royal/30">
+            <p id="timer-days" class="text-2xl sm:text-3xl font-extrabold text-gold-light font-handwriting">0</p>
+            <p class="text-[10px] text-pink-baby font-bold mt-1">يوم</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-3 gap-3">
+          <div class="bg-black/40 backdrop-blur-sm rounded-2xl p-3 border border-pink-rose/30">
+            <p id="timer-hours" class="text-xl sm:text-2xl font-extrabold text-pink-baby font-handwriting">0</p>
+            <p class="text-[10px] text-white/60 font-bold mt-1">ساعة</p>
+          </div>
+          <div class="bg-black/40 backdrop-blur-sm rounded-2xl p-3 border border-pink-rose/30">
+            <p id="timer-minutes" class="text-xl sm:text-2xl font-extrabold text-pink-baby font-handwriting">0</p>
+            <p class="text-[10px] text-white/60 font-bold mt-1">دقيقة</p>
+          </div>
+          <div class="bg-black/40 backdrop-blur-sm rounded-2xl p-3 border border-pink-rose/30">
+            <p id="timer-seconds" class="text-xl sm:text-2xl font-extrabold text-pink-baby font-handwriting">0</p>
+            <p class="text-[10px] text-white/60 font-bold mt-1">ثانية</p>
+          </div>
+        </div>
+        <p class="text-white/50 text-xs font-bold">كل ثانية بتعدي نوران بتكبر في قلوبنا 💖</p>
+      </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- ORNAMENTAL DIVIDER -->
+    <div class="section-divider">
+      <div class="divider-ornament"></div>
+    </div>
+
+    <!-- EPILOGUE -->
+    <section class="py-16 px-4 text-center relative">
+      <div class="section-frame max-w-lg mx-auto"><span class="frame-gem frame-gem--tl"></span><span class="frame-gem frame-gem--tr"></span><span class="frame-gem frame-gem--bl"></span><span class="frame-gem frame-gem--br"></span>
+      <div class="section-frame-inner">
+      <div class="max-w-md mx-auto space-y-6">
+        <p class="text-white font-bold text-sm sm:text-base">وصلنا لنهاية مفاجاتنا.. بس حبنا ليكي ملهوش نهاية</p>
+        <button onclick="openEpilogueModal()" class="w-full py-4 bg-gradient-to-r from-burgundy-luxury via-pink-rose to-burgundy-luxury hover:from-burgundy-dark hover:to-burgundy-dark text-white font-extrabold text-lg sm:text-xl rounded-full shadow-2xl border-2 border-gold-royal transition-all transform hover:scale-105 active:scale-95 flex items-center justify-center gap-3">
+          <span>رسالة الخاتمة الملكية الساحرة</span>
+        </button>
+      </div>
+      </div>
+      </div>
+    </section>
+
+    <div id="epilogue-modal" class="hidden fixed inset-0 z-[120] flex items-center justify-center p-4 bg-black/75 backdrop-blur-md">
+      <div class="bg-cream-luxury rounded-3xl p-6 sm:p-8 max-w-lg w-full border-4 border-gold-royal shadow-2xl space-y-6 text-center relative">
+        <button onclick="closeEpilogueModal()" class="absolute top-4 left-4 w-9 h-9 bg-burgundy-luxury text-white rounded-full flex items-center justify-center font-bold text-base hover:bg-red-700">✕</button>
+        <span class="text-5xl block">👑🎀</span>
+        <h3 class="text-2xl sm:text-3xl font-bold font-marhey text-burgundy-dark">خاتمة ملكية لنوران العسل</h3>
+        <p id="epilogue-text" class="text-gray-800 text-base sm:text-lg leading-relaxed font-semibold min-h-[80px]"></p>
+        <div class="pt-4 border-t border-burgundy-luxury/20"><p class="font-marhey text-sm text-burgundy-luxury font-bold">صُمم بحب بواسطة: Basma Design</p></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- App JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>
